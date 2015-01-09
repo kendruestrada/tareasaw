@@ -3,23 +3,36 @@
 	<xs:element name="sucursal">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="nombre" type="xs:string"/>
+				<xs:element name="nombre" type="identificador"/>
 				<xs:element name="direccion" type="xs:string"/>
-				<xs:element name="platos" type="platos">
-
-							</xs:element>
+				<xs:element name="platos" type="platos"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:complexType name="platos">
 		<xs:sequence>
-			<xs:element name="platos" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="platos" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="plato">
 		<xs:sequence>
-			<xs:element name="nombre" type="xs:string"/>
-			<xs:element name="precio" type="xs:integer"/>
+			<xs:element name="nombre" type="identificador"/>
+			<xs:element name="precio" type="precio"/>
 		</xs:sequence>
 	</xs:complexType>
-</xs:schema>
+	
+ <xs:simpleType name="identificador">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+ <xs:simpleType name="precio">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+
+</xs:schema >
