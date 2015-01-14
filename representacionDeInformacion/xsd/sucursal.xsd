@@ -4,14 +4,39 @@
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element name="nombre" type="identificador"/>
-				<xs:element name="direccion" type="xs:string"/>
+				<xs:element name="direccion" type="direccion"/>
+				<xs:element name="telefono" type="xs:string"/>
 				<xs:element name="platos" type="platos"/>
+				<xs:element name="empleados" type="empleados"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+	<xs:complexType name="empleados">
+		<xs:sequence>
+			<xs:element name="empleado" type="empleado" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="empleado">
+		<xs:sequence>
+			<xs:element name="nombre" type="xs:string"/>
+			<xs:element name="apellidoPaterno" type="xs:string"/>
+			<xs:element name="apellidoMaterno" type="xs:string"/>
+			<xs:element name="rut" type="rut"/>
+			<xs:element name="cargo" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="direccion">
+		<xs:sequence>
+			<xs:element name="pais" type="xs:string"/>
+			<xs:element name="ciudad" type="xs:string"/>
+			<xs:element name="comuna-provincia-sector" type="xs:string"/>
+			<xs:element name="calle" type="xs:string"/>
+			<xs:element name="numero" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
 	<xs:complexType name="platos">
 		<xs:sequence>
-			<xs:element name="platos" maxOccurs="unbounded"/>
+			<xs:element name="plato" type="plato" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="plato">
@@ -20,19 +45,36 @@
 			<xs:element name="precio" type="precio"/>
 		</xs:sequence>
 	</xs:complexType>
-	
- <xs:simpleType name="identificador">
-    <xs:restriction base="xs:string">
-      <xs:minLength value="1"/>
-      <xs:maxLength value="50"/>
-    </xs:restriction>
-  </xs:simpleType>
-
- <xs:simpleType name="precio">
-    <xs:restriction base="xs:integer">
-      <xs:minInclusive value="0"/>
-    </xs:restriction>
-  </xs:simpleType>
-
-
-</xs:schema >
+	<xs:simpleType name="identificador">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="precio">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="rut">
+		<xs:sequence>
+			<xs:element name="rut">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="dv">
+				<xs:simpleType >
+					<xs:restriction base="xs:string">
+					  <xs:maxLength value="1"/>
+					  <xs:minLength value="1"/>
+					  <xs:pattern value="([0-9]|K| |k)"/>
+					</xs:restriction>
+				</xs:simpleType>			
+			
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

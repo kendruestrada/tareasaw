@@ -1,0 +1,53 @@
+{
+  "sucursal": {
+    "nombre": "Sucursal Viña",
+    "direccion": {
+      "pais": "Chile",
+      "ciudad": "Viña Del Mar",
+      "comuna-provincia-sector": "recreo",
+      "calle": "Union",
+      "numero": "124"
+    },
+    "telefono": "1234567",
+    "platos": {
+      "plato": [
+        {
+          "nombre": "paella",
+          "precio": "5800"
+        },
+        {
+          "nombre": "paila Marina",
+          "precio": "5800"
+        },
+        {
+          "nombre": "Corvina",
+          "precio": "5800"
+        }
+      ]
+    },
+    "empleados": {
+      "empleado": [
+        {
+          "nombre": "Alejando",
+          "apellidoPaterno": "Bustamante",
+          "apellidoMaterno": "Rivas",
+          "rut": {
+            "rut": "123123123",
+            "dv": "4"
+          },
+          "cargo": "Camarero"
+        },
+        {
+          "nombre": "Maria",
+          "apellidoPaterno": "Rojas",
+          "apellidoMaterno": "Salinas",
+          "rut": {
+            "rut": "234234234",
+            "dv": "5"
+          },
+          "cargo": "Camarero"
+        }
+      ]
+    }
+  }
+}
